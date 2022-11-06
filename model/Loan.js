@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const loanSchema = mongoose.Schema({
     type: String,
     customerId: String,
-    history: String,
+    reasons: String,
     status: String,
     bankName: String,
     interestRate: Number,
@@ -13,9 +13,10 @@ const loanSchema = mongoose.Schema({
     brand: String,
     model: String,
     //For loan type
-    reasons: String,
+    history: String,
+    
 });
 
-const Loan = mongoose.model('submissions', loanSchema);
+const Loan = mongoose.model('loan', loanSchema);
 
 export default Loan;
