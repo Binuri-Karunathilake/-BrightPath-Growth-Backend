@@ -10,16 +10,16 @@ export const getAllLoan = async (req, res) => {
 }
 
 
-export const addRecord = async (req, res) => {
-    try {
-        const {customerId, history} = req.body;
-        const loan = new Loan({customerId, history});
-        const loaSaved = await loan.save();
-        res.status(201).json(loaSaved);
-    } catch (error) {
-        res.status(404).json({message: error.message});
-    }
-}
+// export const addRecord = async (req, res) => {
+//     try {
+//         const {customerId, history} = req.body;
+//         const loan = new Loan({customerId, history});
+//         const loaSaved = await loan.save();
+//         res.status(201).json(loaSaved);
+//     } catch (error) {
+//         res.status(404).json({message: error.message});
+//     }
+// }
 
 
 export const addLoanRequest = async (req, res) => {

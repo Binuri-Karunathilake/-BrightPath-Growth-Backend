@@ -38,4 +38,19 @@ export const authUser = async (req, res) => {
     }
 }
 
+export const addCoFounderDetails = async (req, res) => {
+    try {
+        const userid = req.params;
+        const {name, occupation, address, contactNo, gpReason, industry, workHours, skills, requiredSkills, image} = req.body;
 
+        const user = await User.findOne({_id: userid});
+        if(!user)
+            return res.status(401).send({message:"Invalid Email or Password"});
+
+
+        const updatedUser = await User.findByIdAndUpdate(id, {name, occupation, address, contactNo, gpReason, industry, workHours, skills, requiredSkills, image});
+        res.status(200).send(updatedUser);
+    } catch (error) {
+        res.status(500).send({message:error.message});
+    }
+}
