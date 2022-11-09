@@ -13,8 +13,8 @@ export const getAllAdvisorRequests = async (req, res) => {
 
 export const addAdvisorRequest = async (req, res) => {
     try {
-        const {customerId, advisorName, category, dateWante} = req.body;
-        const request = new AdvisorRequest({customerId, advisorName, category, dateWante});
+        const {customerId, advisorName, category, dateWanted} = req.body;
+        const request = new AdvisorRequest({customerId, advisorName, category, dateWanted});
         const advisorSaved = await request.save();
         res.status(201).json(advisorSaved);
     } catch (error) {

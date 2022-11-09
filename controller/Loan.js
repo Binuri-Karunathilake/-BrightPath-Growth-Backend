@@ -25,7 +25,7 @@ export const getAllLoan = async (req, res) => {
 export const addLoanRequest = async (req, res) => {
     try {
         const {customerId, amount, bankName, interestRate, reason, history} = req.body;
-        const loan = new Loan({type: 'Loan', status: 'pending', customerId, condition, leaseType, brand, model, amount, bankName, interestRate, reason, history});
+        const loan = new Loan({type: 'Loan', status: 'pending', customerId, amount, bankName, interestRate, reason, history});
         const loaSaved = await loan.save();
         res.status(201).json(loaSaved);
     } catch (error) {

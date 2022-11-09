@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const loanSchema = mongoose.Schema({
     type: String,
+    amount: Number,
     customerId: String,
     reasons: String,
     status: String,

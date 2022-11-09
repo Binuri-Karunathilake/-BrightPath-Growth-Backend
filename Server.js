@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/api/loan', loanRouter);
 app.use('/api/user', userRouter);
 app.use('/api/advisor', advisorRoutes);
-app.use('/inspection', inspectionRoutes);
+app.use('/api/inspection', inspectionRoutes);
 
 const PORT = process.env.PORT || 5000;
 const URI = process.env.MONGO_URI;
