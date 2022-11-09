@@ -16,10 +16,18 @@ app.use(bodyParser.json( {limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded( {limit: '30mb', extended: true}));
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send(
+        "Hello from Hexclan"
+    )
+});
+
 app.use('/api/loan', loanRouter);
 app.use('/api/user', userRouter);
 app.use('/api/advisor', advisorRoutes);
 app.use('/api/inspection', inspectionRoutes);
+
+
 
 const PORT = process.env.PORT || 5000;
 const URI = process.env.MONGO_URI;
