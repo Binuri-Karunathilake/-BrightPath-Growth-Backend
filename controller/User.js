@@ -12,7 +12,7 @@ export const registerUser = async (req, res) => {
 
         const newUser = await new User({...req.body,password:hashPassword}).save();
         const token = newUser.generateAuthToken();
-        res.status(200).send({data:{token: token, id: newUser._id},message:"Registered in successfully!"});
+        res.status(200).send({data:{token: token, id: newUser._id, user: user},message:"Registered in successfully!"});
 
     } catch (error) {
         res.status(500).send({message:error.message});
@@ -32,7 +32,7 @@ export const authUser = async (req, res) => {
             return res.status(401).send({message:"Invalid Email or Password"});
 
         const token = user.generateAuthToken();
-        res.status(200).send({data:{token: token, id: user._id},message:"Logged in successfully!"});
+        res.status(200).send({data:{token: token, id: user._id, user: user},message:"Logged in successfully!"});
     } catch (error) {
         res.status(500).send({message:error.message});
     }
@@ -50,6 +50,18 @@ export const addCoFounderDetails = async (req, res) => {
 
         const updatedUser = await User.findByIdAndUpdate(id, {name, occupation, address, contactNo, gpReason, industry, workHours, skills, requiredSkills, image});
         res.status(200).send(updatedUser);
+    } catch (error) {
+        res.status(500).send({message:error.message});
+    }
+}
+
+
+export const getAllUsers = async (req, res) => {
+    try {
+        const user1 = await User.find();
+        if(!user1)
+            return res.status(401).send({message:"Invalid Email or Password"});
+        res.status(200).send(user1);
     } catch (error) {
         res.status(500).send({message:error.message});
     }
