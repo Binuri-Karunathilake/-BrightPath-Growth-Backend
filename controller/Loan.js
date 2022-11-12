@@ -20,7 +20,7 @@ export const getAllLoanRequests = async (req, res) => {
 
 export const getAllLeaseRequests = async (req, res) => {
     try {
-        const loan = await Loan.find({type: 'Loan'});
+        const loan = await Loan.find({type: 'Lease'});
         res.status(200).json(loan);
     } catch (error) {
         res.status(404).json({message: error.message});
