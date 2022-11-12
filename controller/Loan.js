@@ -9,6 +9,24 @@ export const getAllLoan = async (req, res) => {
     }
 }
 
+export const getAllLoanRequests = async (req, res) => {
+    try {
+        const loan = await Loan.find({type: 'Loan'});
+        res.status(200).json(loan);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
+export const getAllLeaseRequests = async (req, res) => {
+    try {
+        const loan = await Loan.find({type: 'Loan'});
+        res.status(200).json(loan);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
 
 // export const addRecord = async (req, res) => {
 //     try {
