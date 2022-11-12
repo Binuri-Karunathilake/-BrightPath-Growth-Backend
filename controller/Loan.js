@@ -42,8 +42,8 @@ export const getAllLeaseRequests = async (req, res) => {
 
 export const addLoanRequest = async (req, res) => {
     try {
-        const {customerId, amount, bankName, interestRate, reason, history} = req.body;
-        const loan = new Loan({type: 'Loan', status: 'pending', customerId, amount, bankName, interestRate, reason, history});
+        const {customerId, customerName, email, amount, bankName, interestRate, reason, history} = req.body;
+        const loan = new Loan({type: 'Loan', status: 'pending', customerId, customerName, email, amount, bankName, interestRate, reason, history});
         const loaSaved = await loan.save();
         res.status(201).json(loaSaved);
     } catch (error) {
@@ -53,8 +53,8 @@ export const addLoanRequest = async (req, res) => {
 
 export const addLeaseRequest = async (req, res) => {
     try {
-        const {customerId, condition, leaseType, brand, model, amount, bankName, interestRate, reason} = req.body;
-        const loan = new Loan({type: 'Lease', status: 'pending', customerId, condition, leaseType, brand, model, amount, bankName, interestRate, reason});
+        const {customerId, customerName, email, condition, leaseType, brand, model, amount, bankName, interestRate, reason} = req.body;
+        const loan = new Loan({type: 'Lease', status: 'pending', customerId, customerName, email, condition, leaseType, brand, model, amount, bankName, interestRate, reason});
         const loaSaved = await loan.save();
         res.status(201).json(loaSaved);
     } catch (error) {

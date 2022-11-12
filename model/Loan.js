@@ -4,6 +4,8 @@ const loanSchema = mongoose.Schema({
     type: String,
     amount: Number,
     customerId: String,
+    customerName: String,
+    email: String,
     reasons: String,
     status: String,
     bankName: String,
